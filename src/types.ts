@@ -24,11 +24,11 @@ export interface DirectiveNode extends BaseNode {
   value: string;
 }
 
-export interface ContainerNode extends BaseNode {
+export interface BaseContainerNode extends BaseNode {
   childNodes: Node[];
 }
 
-export interface Element extends ContainerNode {
+export interface Element extends BaseContainerNode {
   type: 'element';
   name: string;
   attributes?: { [name: string]: string };
@@ -39,7 +39,7 @@ export interface Element extends ContainerNode {
   closeTag?: string;
 }
 
-export interface Document extends ContainerNode {
+export interface Document extends BaseContainerNode {
   type: 'document';
 
   // Format info
@@ -48,3 +48,4 @@ export interface Document extends ContainerNode {
 }
 
 export type Node = TextNode | CommentNode | CDataNode | DirectiveNode | Element;
+export type ContainerNode = Document | Element

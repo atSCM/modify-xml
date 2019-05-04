@@ -1,11 +1,9 @@
 import { Parser, ContextGetter, ParserContext } from 'saxen';
 import {
-  Document, TextNode, Element, ContainerNode, CommentNode, CDataNode, DirectiveNode, Node,
+  Document, TextNode, Element, ContainerNode, CommentNode, CDataNode, DirectiveNode,
 } from './types';
 
 type CurrentElementDuringParse = ContainerNode & { parent?: ContainerNode };
-
-type ParsedNode = Node & { getContext: ContextGetter };
 
 type ParsingIssue = Error & ParserContext
 
@@ -22,7 +20,9 @@ export default function parse(xml: string, { onWarn }: {
 
   const document: Document = {
     type: 'document',
-    childNodes: [], // new DocumentChildNodes(xml), // FIXME: if preserveFormatting
+    childNodes: [],
+
+    // if preserveFormatting
     leadingSpaces: xml.match(/^\s*/)[0],
     trailingSpaces: xml.match(/\s*$/)[0],
   };
@@ -31,13 +31,10 @@ export default function parse(xml: string, { onWarn }: {
 
   // Handle non-element nodes
 
-  parser.on('text', (value: string, _decode, getContext: ContextGetter) => {
+  parser.on('text', (value: string) => {
     currentNode.childNodes.push({
       type: 'text',
       value,
-
-      // if perserveFormat
-      getContext,
     } as TextNode);
   });
 
@@ -47,7 +44,6 @@ export default function parse(xml: string, { onWarn }: {
       value,
 
       // if perserveFormat
-      getContext,
       rawValue: `${getContext().data}]>`,
     } as CDataNode);
   });
@@ -58,23 +54,21 @@ export default function parse(xml: string, { onWarn }: {
       value,
 
       // if preserveFormat
-      getContext,
       rawValue: `${getContext().data}->`,
     } as CommentNode);
   });
 
-  const handleDirective = (value: string, getContext: ContextGetter) => {
+  const handleDirective = (value: string) => {
     currentNode.childNodes.push({
       type: 'directive',
       value,
 
       // if preserveFormat
-      getContext,
     } as DirectiveNode);
   };
 
   // e.g. <!doctype ...>
-  parser.on('attention', (str, decode, getContext) => handleDirective(str, getContext));
+  parser.on('attention', handleDirective);
 
   // e.g. <?xml ...>
   parser.on('question', handleDirective);
@@ -82,14 +76,13 @@ export default function parse(xml: string, { onWarn }: {
   // Handle elements
 
   parser.on('openTag', (name, getAttributes, _decode, selfClosing, getContext) => {
-    const element: Element & ParsedNode = {
+    const element: Element = {
       type: 'element',
       name,
       childNodes: [],
       attributes: getAttributes(),
 
       // if preserveFormatting
-      getContext,
       selfClosing,
       openTag: getContext().data,
     };
