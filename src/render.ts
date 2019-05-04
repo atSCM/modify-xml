@@ -48,7 +48,7 @@ export function renderNode(node: Node, { indent, level }: RenderLevelOptions): s
       }${node.closeTag || `</${node.name}>`}`;
     }
     default:
-      throw new Error(`Cannot render '${node.type}' node`);
+      throw new Error(`Cannot render node: ${node}`);
   }
 }
 

@@ -1,4 +1,3 @@
-import { promises } from 'fs';
 import test, { ExecutionContext } from 'ava';
 import parse from '../src/parse';
 import render from '../src/render';
