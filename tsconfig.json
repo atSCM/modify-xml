@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./out/types",
+    "moduleResolution": "node",
+    "lib": ["es2018"]
+  },
+  "include": [
+    "types/**/*",
+    "src/**/*"
+  ]
+}

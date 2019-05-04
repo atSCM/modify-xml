@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["@babel/env", { "targets": { "node": 8 } }],
+    "@babel/typescript"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/env", { "targets": { "node": 8 }, "modules": true }],
+        "@babel/typescript"
+      ]
+    }
+  }
+}

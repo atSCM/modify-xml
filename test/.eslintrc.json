@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@ls-age/eslint-config/ava"
+  ]
+}
