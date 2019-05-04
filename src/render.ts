@@ -1,8 +1,4 @@
-import { Document, BaseNode, TextNode, Element, Node } from './types';
-
-export function isElement(node: BaseNode): node is Element {
-  return node.type === 'element';
-}
+import { Document, TextNode, Element, Node } from './types';
 
 type RenderLevelOptions = RenderOptions & { level: number };
 

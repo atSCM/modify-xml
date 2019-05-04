@@ -1,3 +1,16 @@
+# modify-xml
+
+> An easy way to modify XML documents without changing the formatting of the original.
+> This module is part of the [atscm](https://github.com/atSCM/atscm) project.
+>
+> **This module is still under development, do not use it in production yet**
+
+[![CircleCI](https://circleci.com/gh/atSCM/modify-xml.svg?style=svg)](https://circleci.com/gh/atSCM/modify-xml)
+
+## Installation
+
+As usual, run `npm i modify-xml`.
+
 ## Usage
 
 ```javascript

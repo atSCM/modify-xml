@@ -1,16 +1,26 @@
 {
   "name": "modify-xml",
-  "version": "0.0.0",
+  "version": "0.1.0-beta.1",
   "description": "An easy way to modify XML documents without changing the formatting of the original",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atSCM/modify-xml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atSCM/modify-xml/issues"
+  },
+  "homepage": "https://github.com/atSCM/modify-xml#readme",
+  "author": "Lukas Hechenberger <lukas.hechenberger@bachmann.info>",
   "main": "out/index.js",
   "module": "out/es/index.js",
   "types": "out/types/index.d.ts",
   "scripts": {
     "compile": "rollup -c",
-    "types": "tsc --emitDeclarationOnly",
-    "typecheck": "tsc --noEmit",
+    "lint": "eslint rollup.config.js src test --ext .js,.ts",
     "test": "ava",
-    "lint": "eslint rollup.config.js src test --ext .js,.ts"
+    "typecheck": "tsc --noEmit",
+    "types": "tsc --emitDeclarationOnly"
   },
   "keywords": [
     "atscm",
@@ -20,8 +30,9 @@
     "parse",
     "render"
   ],
-  "author": "Lukas Hechenberger <lukas.hechenberger@bachmann.info>",
-  "license": "MIT",
+  "dependencies": {
+    "saxen": "^8.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
@@ -40,18 +51,12 @@
     "tap-xunit": "^2.3.0",
     "typescript": "^3.4.5"
   },
-  "dependencies": {
-    "saxen": "^8.1.0"
-  },
   "ava": {
-    "files": [
-      "test/**/*.{js,ts}"
-    ],
-    "sources": [
-      "src/**/*.{js,ts}"
-    ],
     "require": [
       "sucrase/register"
+    ],
+    "files": [
+      "test/**/*.{js,ts}"
     ],
     "extensions": [
       "js",
