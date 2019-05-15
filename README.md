@@ -14,7 +14,6 @@ As usual, run `npm i modify-xml`.
 ## Usage
 
 ```javascript
-import { promises } from 'fs';
 import { parse, render } from 'modify-xml';
 
 const xml = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
