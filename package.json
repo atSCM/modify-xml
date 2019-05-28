@@ -64,5 +64,10 @@
     ],
     "babel": false,
     "compileEnhancements": false
+  },
+  "renovate": {
+    "extends": [
+      "@ls-age:automergeDev"
+    ]
   }
 }
