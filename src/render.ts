@@ -9,10 +9,25 @@ export function renderTextNode(node: TextNode, { indent, level }: RenderLevelOpt
   return node.value.replace(/^[ \t]+/gm, indent.repeat(level));
 }
 
+const doubleQuoteRegExp = /"/;
+const singleQuoteRegExp = /'/;
+
 export function renderOpenTag(element: Element) {
   return `<${element.name}${
     Object.entries(element.attributes)
-      .reduce((result, [name, value]) => `${result} ${name}="${value}"`, '')
+      .reduce((result, [name, value]) => {
+        let quote = '"';
+
+        if (doubleQuoteRegExp.test(value)) {
+          if (singleQuoteRegExp.test(value)) {
+            // eslint-disable-next-line max-len
+            throw new Error(`Found single and double quotes in value of attribute '${name}': \`${value}\`. Escape values first`);
+          }
+
+          quote = "'";
+        }
+        return `${result} ${name}=${quote}${value}${quote}`;
+      }, '')
   }${element.selfClosing ? '/' : ''}>`;
 }
 
