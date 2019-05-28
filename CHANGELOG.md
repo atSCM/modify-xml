@@ -1,3 +1,14 @@
+<a name="0.2.0"></a>
+# 0.2.0 (2019-05-28)
+
+
+### Features
+
+* **render:** Allow quotes in attribute values ([#6](https://github.com/atSCM/modify-xml/issues/6)) ([0c627c1](https://github.com/atSCM/modify-xml/commits/0c627c1))
+
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2019-05-04)
 

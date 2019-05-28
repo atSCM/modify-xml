@@ -1,6 +1,6 @@
 {
   "name": "modify-xml",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An easy way to modify XML documents without changing the formatting of the original",
   "license": "MIT",
   "repository": {
