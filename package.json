@@ -48,7 +48,7 @@
     "rollup-plugin-node-resolve": "5.0.1",
     "rollup-plugin-sucrase": "2.1.0",
     "sucrase": "3.10.1",
-    "tap-xunit": "2.4.0",
+    "tap-xunit": "2.4.1",
     "typescript": "3.5.1"
   },
   "ava": {
