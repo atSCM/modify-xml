@@ -40,7 +40,7 @@
     "@ls-age/bump-version": "0.2.0",
     "@ls-age/eslint-config": "0.9.0",
     "@typescript-eslint/eslint-plugin": "1.9.0",
-    "ava": "2.1.0",
+    "ava": "2.2.0",
     "babel-plugin-istanbul": "5.1.4",
     "eslint": "5.16.0",
     "rollup": "1.16.6",
