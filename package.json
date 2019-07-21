@@ -41,7 +41,7 @@
     "@ls-age/eslint-config": "0.9.0",
     "@typescript-eslint/eslint-plugin": "1.9.0",
     "ava": "2.2.0",
-    "babel-plugin-istanbul": "5.1.4",
+    "babel-plugin-istanbul": "5.2.0",
     "eslint": "5.16.0",
     "rollup": "1.17.0",
     "rollup-plugin-babel": "4.3.3",
