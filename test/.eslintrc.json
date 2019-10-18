@@ -1,5 +1,7 @@
 {
   "extends": [
-    "@ls-age/eslint-config/ava"
+    "@ls-age/eslint-config/ava",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
   ]
 }

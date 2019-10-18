@@ -1,7 +1,4 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 2018
-  },
   "extends": [
     "@ls-age",
     "plugin:@typescript-eslint/recommended",
@@ -12,9 +9,6 @@
     "jsdoc/require-param-type": "off",
     "jsdoc/require-returns-type": "off",
     "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-object-literal-type-assertion": ["error", {
-      "allowAsParameter": true
-    }]
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }
