@@ -1,3 +1,19 @@
+<a name="1.0.0-beta.0"></a>
+# 1.0.0-beta.0 (2020-03-02)
+
+
+### Features
+
+* Use '[@atscm](https://github.com/atscm)/parse-xml' to parse xml ([#43](https://github.com/atSCM/modify-xml/issues/43)) ([147e705](https://github.com/atSCM/modify-xml/commits/147e705))
+
+
+### BREAKING CHANGES
+
+* This changes the 'parse' as well as the 'attribute' API
+
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2019-05-28)
 
