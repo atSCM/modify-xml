@@ -16,7 +16,9 @@
   "module": "out/es/index.js",
   "types": "out/types/index.d.ts",
   "scripts": {
-    "compile": "rollup -c",
+    "build": "npm run types && npm run build:rollup",
+    "build:rollup": "rollup -c --environment NODE_ENV:production",
+    "dev": "rollup -cw",
     "lint": "eslint rollup.config.js src test --ext .js,.ts",
     "test": "ava",
     "typecheck": "tsc --noEmit",
@@ -31,7 +33,7 @@
     "render"
   ],
   "dependencies": {
-    "saxen": "^8.1.0"
+    "@atscm/parse-xml": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.8.6",

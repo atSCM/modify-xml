@@ -1,4 +1,12 @@
-import { Node, ContainerNode, TextNode, CDataNode, Element } from './types';
+import {
+  Node,
+  ContainerNode,
+  TextNode,
+  CDataNode,
+  Element,
+  AttributeValues,
+  AttributeDefinition,
+} from './types';
 import { isElement } from './helpers';
 
 /**
@@ -22,6 +30,14 @@ export function createCDataNode(value = ''): CDataNode {
   };
 }
 
+function normalizeAttributes(
+  attributes: AttributeDefinition[] | AttributeValues
+): AttributeDefinition[] {
+  if (Array.isArray(attributes)) return attributes;
+
+  return Object.entries(attributes).map(([name, value]) => ({ name, value }));
+}
+
 /**
  * Creates a new element node.
  * @param name The node's name.
@@ -32,13 +48,13 @@ export function createCDataNode(value = ''): CDataNode {
 export function createElement(
   name: string,
   childNodes: Node[] | undefined = undefined,
-  attributes = {}
+  attributes: AttributeValues | AttributeDefinition[] = {}
 ): Element {
   return {
     type: 'element',
     name,
     childNodes: childNodes || [],
-    attributes,
+    attributes: normalizeAttributes(attributes),
   };
 }
 

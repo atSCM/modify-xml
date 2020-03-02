@@ -10,13 +10,11 @@ export interface TextNode extends BaseNode {
 export interface CDataNode extends BaseNode {
   type: 'cdata';
   value: string;
-  rawValue?: string;
 }
 
 export interface CommentNode extends BaseNode {
   type: 'comment';
   value: string;
-  rawValue?: string;
 }
 
 export interface DirectiveNode extends BaseNode {
@@ -31,7 +29,7 @@ export interface BaseContainerNode extends BaseNode {
 export interface Element extends BaseContainerNode {
   type: 'element';
   name: string;
-  attributes?: { [name: string]: string };
+  attributes?: AttributeDefinition[];
 
   // Format info
   selfClosing?: boolean;
@@ -41,11 +39,10 @@ export interface Element extends BaseContainerNode {
 
 export interface Document extends BaseContainerNode {
   type: 'document';
-
-  // Format info
-  leadingSpaces?: string;
-  trailingSpaces?: string;
 }
 
 export type Node = TextNode | CommentNode | CDataNode | DirectiveNode | Element;
 export type ContainerNode = Document | Element
+
+export type AttributeDefinition = { name: string; value: string };
+export type AttributeValues = { [name: string]: string }

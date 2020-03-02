@@ -1,4 +1,4 @@
-import { Element, ContainerNode, TextNode, CDataNode, BaseNode } from './types';
+import { Element, ContainerNode, TextNode, CDataNode, BaseNode, AttributeValues } from './types';
 
 export function isElement(node: BaseNode): node is Element {
   return node.type === 'element';
@@ -32,4 +32,8 @@ export function textContent(node: BaseNode | null): string | null {
     .find(n => isTextNode(n) || isCDataNode(n)) as { value: string } | undefined;
 
   return contentNode ? contentNode.value : null;
+}
+
+export function attributeValues(node: Element): AttributeValues {
+  return (node.attributes || []).reduce((all, a) => ({ ...all, [a.name]: a.value }), {});
 }

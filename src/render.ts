@@ -14,8 +14,8 @@ const singleQuoteRegExp = /'/;
 
 export function renderOpenTag(element: Element) {
   return `<${element.name}${
-    Object.entries(element.attributes)
-      .reduce((result, [name, value]) => {
+    element.attributes
+      .reduce((result, { name, value }) => {
         let quote = '"';
 
         if (doubleQuoteRegExp.test(value)) {
@@ -34,8 +34,8 @@ export function renderOpenTag(element: Element) {
 export function renderNode(node: Node, { indent, level }: RenderLevelOptions): string {
   switch (node.type) {
     case 'text': return renderTextNode(node, { indent, level });
-    case 'cdata': return node.rawValue || `<![CDATA[${node.value}]]>`;
-    case 'comment': return node.rawValue || `<!-- ${node.value} -->`;
+    case 'cdata': return `<![CDATA[${node.value}]]>`;
+    case 'comment': return `<!--${node.value}-->`;
     case 'directive': return node.value;
     case 'element': {
       if (!node.openTag) { // Dynamically added, check if self closing first...
@@ -68,11 +68,5 @@ export interface RenderOptions {
 }
 
 export default function render(document: Document, { indent = 'keep' } = {}): string {
-  return `${
-    document.leadingSpaces || ''
-  }${
-    document.childNodes.map(n => renderNode(n, { indent, level: 0 })).join('\n')
-  }${
-    document.trailingSpaces || ''
-  }`;
+  return document.childNodes.map(n => renderNode(n, { indent, level: 0 })).join('');
 }

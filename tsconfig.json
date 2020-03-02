@@ -3,7 +3,8 @@
     "declaration": true,
     "declarationDir": "./out/types",
     "moduleResolution": "node",
-    "lib": ["es2018"]
+    "lib": ["esnext"],
+    "target": "esnext"
   },
   "include": [
     "types/**/*",
