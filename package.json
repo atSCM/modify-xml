@@ -45,7 +45,7 @@
     "babel-plugin-istanbul": "6.0.0",
     "eslint": "7.2.0",
     "eslint-plugin-import": "2.21.2",
-    "rollup": "2.16.0",
+    "rollup": "2.16.1",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-node-resolve": "5.2.0",
     "rollup-plugin-sucrase": "2.1.0",
