@@ -34,7 +34,7 @@
     "saxen": "^8.1.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.8",
+    "@babel/core": "7.12.9",
     "@babel/preset-env": "7.12.7",
     "@babel/preset-typescript": "7.12.7",
     "@ls-age/bump-version": "0.2.1",
